@@ -27,6 +27,7 @@ namespace XP.Hackathon.Zabbot.DTO
             output.Name = input.Name;
             output.Email = input.Email;
             output.TagName = input.TagName;
+            output.Channel = input.Channel;
             output.Created = input.Created;
             output.Updated = input.Updated;
             output.Active = input.Active;
@@ -45,6 +46,7 @@ namespace XP.Hackathon.Zabbot.DTO
             output.Name = input.Name;
             output.Email = input.Email;
             output.TagName = input.TagName;
+            output.Channel = input.Channel;
             output.Created = input.Created;
             output.Updated = input.Updated;
             output.Active = input.Active;
@@ -67,6 +69,7 @@ namespace XP.Hackathon.Zabbot.DTO
                 output.Name = input.Name;
                 output.Email = input.Email;
                 output.TagName = input.TagName;
+                output.Channel = input.Channel;
                 output.Created = input.Created;
                 output.Updated = input.Updated;
                 output.Active = input.Active;
@@ -92,6 +95,7 @@ namespace XP.Hackathon.Zabbot.DTO
                 output.Name = input.Name;
                 output.Email = input.Email;
                 output.TagName = input.TagName;
+                output.Channel = input.Channel;
                 output.Created = input.Created;
                 output.Updated = input.Updated;
                 output.Active = input.Active;
