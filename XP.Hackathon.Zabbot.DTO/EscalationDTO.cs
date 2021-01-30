@@ -3,6 +3,7 @@ using XP.Hackathon.Zabbot.Interface.Service;
 using System.Collections.Generic;
 using System.Linq;
 using XP.Hackathon.Zabbot.Interface.DTO;
+using System;
 
 namespace XP.Hackathon.Zabbot.DTO
 {
@@ -24,10 +25,10 @@ namespace XP.Hackathon.Zabbot.DTO
             var output = new Escalation();
 
             output.Id = input.Id;
-            output.GroupId = input.GroupId;
-            output.Sequence = input.Sequence;
-            output.HourStart = input.HourStart;
-            output.HourEnd = input.HourEnd;
+            output.GroupId = input.GroupId.ToString();
+            output.Sequence = input.Sequence.ToString();
+            output.HourStart = input.HourStart.ToString();
+            output.HourEnd = input.HourEnd.ToString();
             output.Role = input.Role;
             output.Name = input.Name;
             output.Contact = input.Contact;
@@ -48,10 +49,10 @@ namespace XP.Hackathon.Zabbot.DTO
             var output = new EscalationMessage();
 
             output.Id = input.Id;
-            output.GroupId = input.GroupId;
-            output.Sequence = input.Sequence;
-            output.HourStart = input.HourStart;
-            output.HourEnd = input.HourEnd;
+            output.GroupId = Convert.ToInt64(input.GroupId);
+            output.Sequence = Convert.ToInt32(input.Sequence);
+            output.HourStart = TimeSpan.Parse(input.HourStart);
+            output.HourEnd = TimeSpan.Parse(input.HourEnd);
             output.Role = input.Role;
             output.Name = input.Name;
             output.Contact = input.Contact;
@@ -76,10 +77,10 @@ namespace XP.Hackathon.Zabbot.DTO
                 var output = new Escalation();  
 
                 output.Id = input.Id;
-                output.GroupId = input.GroupId;
-                output.Sequence = input.Sequence;
-                output.HourStart = input.HourStart;
-                output.HourEnd = input.HourEnd;
+                output.GroupId = input.GroupId.ToString();
+                output.Sequence = input.Sequence.ToString();
+                output.HourStart = input.HourStart.ToString();
+                output.HourEnd = input.HourEnd.ToString();
                 output.Role = input.Role;
                 output.Name = input.Name;
                 output.Contact = input.Contact;
@@ -107,10 +108,10 @@ namespace XP.Hackathon.Zabbot.DTO
                 var output = new EscalationMessage();  
 
                 output.Id = input.Id;
-                output.GroupId = input.GroupId;
-                output.Sequence = input.Sequence;
-                output.HourStart = input.HourStart;
-                output.HourEnd = input.HourEnd;
+                output.GroupId = Convert.ToInt64(input.GroupId);
+                output.Sequence = Convert.ToInt32(input.Sequence);
+                output.HourStart = TimeSpan.Parse(input.HourStart);
+                output.HourEnd = TimeSpan.Parse(input.HourEnd);
                 output.Role = input.Role;
                 output.Name = input.Name;
                 output.Contact = input.Contact;
