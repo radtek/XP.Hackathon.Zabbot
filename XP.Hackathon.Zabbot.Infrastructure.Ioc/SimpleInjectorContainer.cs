@@ -24,30 +24,30 @@ namespace XP.Hackathon.Zabbot.Infrastructure.IoC
                 services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
                 // Domain
-                services.AddSingleton(typeof(IServiceBase<>), typeof(ServiceBase<>));
-                services.AddSingleton<ILogService, LogService>();
-                services.AddSingleton<Interface.Service.IUserService, Service.UserService>();
-                services.AddSingleton<Interface.Service.IProductService, Service.ProductService>();
-                services.AddSingleton<Interface.Service.IEscalationGroupService, Service.EscalationGroupService>();
-                services.AddSingleton<Interface.Service.IEscalationService, Service.EscalationService>();
+                services.AddTransient(typeof(IServiceBase<>), typeof(ServiceBase<>));
+                services.AddTransient<ILogService, LogService>();
+                services.AddTransient<Interface.Service.IUserService, Service.UserService>();
+                services.AddTransient<Interface.Service.IProductService, Service.ProductService>();
+                services.AddTransient<Interface.Service.IEscalationGroupService, Service.EscalationGroupService>();
+                services.AddTransient<Interface.Service.IEscalationService, Service.EscalationService>();
 
                 // SkyNet.Region Domain
 
-                services.AddSingleton<ICacheService, RedisService>();
-                services.AddSingleton<IAuthentication, Authentication>();
-                services.AddSingleton<Interface.DTO.IUserDTO, DTO.UserDTO>();
-                services.AddSingleton<Interface.DTO.IProductDTO, DTO.ProductDTO>();
-                services.AddSingleton<Interface.DTO.IEscalationGroupDTO, DTO.EscalationGroupDTO>();
-                services.AddSingleton<Interface.DTO.IEscalationDTO, DTO.EscalationDTO>();
+                services.AddTransient<ICacheService, RedisService>();
+                services.AddTransient<IAuthentication, Authentication>();
+                services.AddTransient<Interface.DTO.IUserDTO, DTO.UserDTO>();
+                services.AddTransient<Interface.DTO.IProductDTO, DTO.ProductDTO>();
+                services.AddTransient<Interface.DTO.IEscalationGroupDTO, DTO.EscalationGroupDTO>();
+                services.AddTransient<Interface.DTO.IEscalationDTO, DTO.EscalationDTO>();
 
                 // SkyNet.Region DTO
 
                 // Repository
-                services.AddSingleton<Interface.Repository.ILogRepository, Data.SqlSever.Repositories.LogRepository>();
-                services.AddSingleton<Interface.Repository.IUserRepository, Data.SqlSever.Repositories.UserRepository>();
-                services.AddSingleton<Interface.Repository.IProductRepository, Data.SqlSever.Repositories.ProductRepository>();
-                services.AddSingleton<Interface.Repository.IEscalationGroupRepository, Data.SqlSever.Repositories.EscalationGroupRepository>();
-                services.AddSingleton<Interface.Repository.IEscalationRepository, Data.SqlSever.Repositories.EscalationRepository>();
+                services.AddTransient<Interface.Repository.ILogRepository, Data.SqlSever.Repositories.LogRepository>();
+                services.AddTransient<Interface.Repository.IUserRepository, Data.SqlSever.Repositories.UserRepository>();
+                services.AddTransient<Interface.Repository.IProductRepository, Data.SqlSever.Repositories.ProductRepository>();
+                services.AddTransient<Interface.Repository.IEscalationGroupRepository, Data.SqlSever.Repositories.EscalationGroupRepository>();
+                services.AddTransient<Interface.Repository.IEscalationRepository, Data.SqlSever.Repositories.EscalationRepository>();
 
                 // SkyNet.Region Repository
             }
