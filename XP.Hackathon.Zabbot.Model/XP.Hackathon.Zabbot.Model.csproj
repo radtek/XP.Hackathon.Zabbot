@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon />
+    <OutputTypeEx>library</OutputTypeEx>
+    <StartupObject />
+    <RootNamespace>XP.Hackathon.Zabbot.Model</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+</Project>

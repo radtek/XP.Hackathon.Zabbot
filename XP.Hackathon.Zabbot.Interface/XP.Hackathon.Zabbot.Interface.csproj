@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon />
+    <OutputTypeEx>library</OutputTypeEx>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Service\Files\**" />
+    <Compile Remove="Service\ProgramItems\**" />
+    <EmbeddedResource Remove="Service\Files\**" />
+    <EmbeddedResource Remove="Service\ProgramItems\**" />
+    <None Remove="Service\Files\**" />
+    <None Remove="Service\ProgramItems\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XP.Hackathon.Zabbot.Model\XP.Hackathon.Zabbot.Model.csproj" />
+  </ItemGroup>
+
+</Project>

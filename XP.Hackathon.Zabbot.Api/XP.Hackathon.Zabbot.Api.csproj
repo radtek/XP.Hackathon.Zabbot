@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Formatters.Json" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="2.0.0-preview1-final" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
+    <PackageReference Include="SimpleInjector" Version="4.3.0" />
+    <PackageReference Include="Swashbuckle" Version="5.6.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XP.Hackathon.Zabbot.Infrastructure.Ioc\XP.Hackathon.Zabbot.Infrastructure.Ioc.csproj" />
+    <ProjectReference Include="..\XP.Hackathon.Zabbot.Interface\XP.Hackathon.Zabbot.Interface.csproj" />
+    <ProjectReference Include="..\XP.Hackathon.Zabbot.Service\XP.Hackathon.Zabbot.Service.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
+

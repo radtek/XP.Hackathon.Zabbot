@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XP.Hackathon.Zabbot.Interface\XP.Hackathon.Zabbot.Interface.csproj" />
+    <ProjectReference Include="..\XP.Hackathon.Zabbot.Model\XP.Hackathon.Zabbot.Model.csproj" />
+  </ItemGroup>
+
+ 
+</Project>

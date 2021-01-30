@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon />
+    <OutputTypeEx>library</OutputTypeEx>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Repositories\obj\**" />
+    <EmbeddedResource Remove="Repositories\obj\**" />
+    <None Remove="Repositories\obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XP.Hackathon.Zabbot.DTO\XP.Hackathon.Zabbot.DTO.csproj" />
+    <ProjectReference Include="..\XP.Hackathon.Zabbot.Interface\XP.Hackathon.Zabbot.Interface.csproj" />
+    <ProjectReference Include="..\XP.Hackathon.Zabbot.Model\XP.Hackathon.Zabbot.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
+</Project>
