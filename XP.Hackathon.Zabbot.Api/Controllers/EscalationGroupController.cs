@@ -11,7 +11,7 @@ namespace XP.Hackathon.Zabbot.Api.Controllers
     public class EscalationGroupController : BaseController<EscalationGroup, EscalationGroupMessage>
     {
 
-        public EscalationGroupController(IEscalationGroupService service, IEscalationGroupDTO escalationGroupDTO) : base(service, escalationGroupDTO)
+        public EscalationGroupController(IEscalationGroupService service, IEscalationGroupDTO _facade) : base(service, _facade)
         {
 
         }

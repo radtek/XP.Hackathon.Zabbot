@@ -15,13 +15,13 @@ namespace XP.Hackathon.Zabbot.Api.Controllers
     {
         private readonly IUserService _service;
         private readonly IAuthentication _authentication;
-        private readonly IUserDTO _dto;
+        private readonly IUserDTO _facade;
 
         public UserController(IUserService service, IAuthentication authentication, IUserDTO dto) : base(service, dto)
         {
             this._service = service;
             this._authentication = authentication;
-            this._dto = dto;
+            this._facade = dto;
         }
 
         [AllowAnonymous]
@@ -49,7 +49,7 @@ namespace XP.Hackathon.Zabbot.Api.Controllers
             if (message == null)
                 return await ResponseBadRequest();
 
-            var model = _dto.ToModel(message);
+            var model = _facade.ToModel(message);
 
             var response = await _service.Register(model);
             if (!response.Success)

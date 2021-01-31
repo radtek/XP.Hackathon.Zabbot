@@ -11,8 +11,8 @@ namespace XP.Hackathon.Zabbot.Model
         public long GroupId  { get; set; }
         //public string HourStart  { get; set; }
         //public string HourEnd  { get; set; }
-        public TimeSpan HourStart { get; set; }
-        public TimeSpan HourEnd { get; set; }
+        public TimeSpan? HourStart { get; set; }
+        public TimeSpan? HourEnd { get; set; }
 
         public string Contact  { get; set; }
         public string Email  { get; set; }
