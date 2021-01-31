@@ -1,10 +1,10 @@
 ﻿using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using Xunit;
 
 namespace XP.Hackathon.Zabbot.Tests
 {
-    [TestClass]
+
     public class EscalationGroupServiceTest
     {
         public EscalationGroupFixtureTest _fixture { get; set; }
@@ -14,7 +14,7 @@ namespace XP.Hackathon.Zabbot.Tests
             _fixture = new EscalationGroupFixtureTest();
         }
 
-        [TestMethod("Obtém as lista de times")]
+        [Fact]
         public async void EscalationGroup_GetAll_Success()
         {
             // Arrange
