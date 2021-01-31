@@ -8,7 +8,7 @@ using XP.Hackathon.Zabbot.Model.Filter;
 
 namespace XP.Hackathon.Zabbot.Api.Controllers
 {
-    public abstract class BaseController<Model, Message> : Controller where Model : BaseModel where Message : BaseModel
+    public abstract class BaseController<Model, Message> : BaseHttpController where Model : BaseModel where Message : BaseModel
     {
         private ObjectResult responseMessage;
 
@@ -104,65 +104,5 @@ namespace XP.Hackathon.Zabbot.Api.Controllers
 
             return await ResponseNoContent();
         }
-
-
-
-        protected Task<ObjectResult> ResponseOk(object content)
-        {
-            responseMessage = StatusCode((int)HttpStatusCode.OK, content);
-            return Task.FromResult(responseMessage);
-        }
-
-        protected Task<ObjectResult> ResponseNotFound(string message = null)
-        {
-            responseMessage = StatusCode((int)HttpStatusCode.NotFound, message);
-            return Task.FromResult(responseMessage);
-        }
-
-        protected Task<ObjectResult> ResponseAccepted(object content)
-        {
-            responseMessage = StatusCode((int)HttpStatusCode.Accepted, content);
-            return Task.FromResult(responseMessage);
-        }
-
-        protected Task<ObjectResult> ResponseCreated(object message = null)
-        {
-            responseMessage = StatusCode((int)HttpStatusCode.Created, message);
-            return Task.FromResult(responseMessage);
-        }
-
-        protected Task<ObjectResult> ResponseNoContent(object response = null)
-        {
-            responseMessage = StatusCode((int)HttpStatusCode.NoContent, response);
-            return Task.FromResult(responseMessage);
-        }
-
-        protected Task<ObjectResult> ResponseInternalServerError(string message = null)
-        {
-            responseMessage = StatusCode((int)HttpStatusCode.InternalServerError, message);
-            return Task.FromResult(responseMessage);
-        }
-
-        protected Task<ObjectResult> ResponseBadRequest()
-        {
-            responseMessage = StatusCode((int)HttpStatusCode.BadRequest, null);
-            return Task.FromResult(responseMessage);
-        }
-
-        protected Task<ObjectResult> ResponseBadRequest(string message)
-        {
-            responseMessage = StatusCode((int)HttpStatusCode.BadRequest, message);
-            return Task.FromResult(responseMessage);
-        }     
-
-        public string GetIpAddress
-        {
-            get
-            {
-                string ip = string.IsNullOrEmpty(HttpContext.Request.Headers["IP_ADDRESS"]) ? HttpContext.Connection.RemoteIpAddress.ToString() : HttpContext.Request.Headers["IP_ADDRESS"].ToString();
-                return ip;
-            }
-        }
-
     }
 }
