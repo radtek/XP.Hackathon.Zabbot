@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using XP.Hackathon.Zabbot.Interface.DTO;
 using XP.Hackathon.Zabbot.Interface.Service;
 using XP.Hackathon.Zabbot.Model;
@@ -17,114 +16,81 @@ namespace XP.Hackathon.Zabbot.DTO
 	    {
 	    }
 
-        public Escalation ToModel(EscalationMessage input)
+        public TeamsEvent GetTeamsMessage(ZabbixEvent input)
         {
             if (input == null)
                 return null;
 
-            var output = new Escalation();
+            var output = new TeamsEvent();
 
-            output.Id = input.Id;
-            output.GroupId = Convert.ToInt64(input.GroupId);
-            output.Sequence = Convert.ToInt32(input.Sequence);
-            //output.HourStart = TimeSpan.Parse(input.HourStart);
-            //output.HourEnd = TimeSpan.Parse(input.HourEnd);
-            output.Role = input.Role;
-            output.Name = input.Name;
-            output.Contact = input.Contact;
-            output.Email = input.Email;
-            output.Note = input.Note;
-            output.Created = input.Created;
-            output.Updated = input.Updated;
-            output.Active = input.Active;
+            output.type = "MessageCard";
+            output.context = "http://schema.org/extensions";
+            output.themeColor = "0076D7";
+            output.summary = input.Subject;
+            output.sections = new List<Section>();
+            var section = new Section();
+            section.activityTitle = "![TestImage](https://assets.zabbix.com/img/newsletter/2016/icons/share-logo-z.png)Zabbot";
+            section.activityImage = "https://assets.zabbix.com/img/newsletter/2016/icons/share-logo-z.png";
+            section.activitySubtitle = input.Subject;
+            section.markdown = true;
+
+            var fact1 = new Fact();
+            fact1.name = "Data";
+            fact1.value = DateTime.Now.ToString("dd/MM/yyyy").ToString();
+
+            var fact2 = new Fact();
+            fact2.name = "Status";
+            fact2.value = "Alarme";
+
+            section.facts = new List<Fact>();
+            section.facts.Add(fact1);
+            section.facts.Add(fact2);
+
+            output.sections.Add(section);
+
+            output.potentialAction = new List<Potentialaction>();
+
+            var potAct1 = new Potentialaction();
+            potAct1.type = "ActionCard";
+            potAct1.name = "Já estou analisando";
+            potAct1.inputs = new List<Input>();
+            var inp = new Input();
+            inp.type = "TextInput";
+            inp.id = "comment";
+            inp.isMultiline = false;
+            inp.title = "Informe seu usuario U. ex:'U000000'";
+            potAct1.inputs.Add(inp);
+            potAct1.actions = new List<Model.Action>();
+            var act = new Model.Action();
+            act.type = "HttpPOST";
+            act.name = "Save";
+            act.target = "http://...";
+            potAct1.actions.Add(act);
+            output.potentialAction.Add(potAct1);
+
+            var potAct2 = new Potentialaction();
+            potAct2.type = "ActionCard";
+            potAct2.name = "Não é da minha equipe";
+            potAct2.actions = new List<Model.Action>();
+            var act2 = new Model.Action();
+            act2.type = "HttpPOST";
+            act2.name = "Save";
+            act2.target = "http://...";
+            potAct2.actions.Add(act2);
+            output.potentialAction.Add(potAct2);
+
+            var potAct3 = new Potentialaction();
+            potAct3.type = "ActionCard";
+            potAct3.name = "Não é da minha equipe";
+            potAct3.actions = new List<Model.Action>();
+            var act3 = new Model.Action();
+            act3.type = "HttpPOST";
+            act3.name = "Save";
+            act3.target = "http://...";
+            potAct3.actions.Add(act3);
+            output.potentialAction.Add(potAct3);
 
             return output;
-        }
-
-        public EscalationMessage ToMessage(Escalation input)
-        {
-            if (input == null)
-                return null;
-
-            var output = new EscalationMessage();
-
-            output.Id = input.Id;
-            output.GroupId = input.GroupId.ToString();
-            output.Sequence = input.Sequence.ToString();
-            //output.HourStart = input.HourStart.ToString();
-            //output.HourEnd = input.HourEnd.ToString();
-            output.Role = input.Role;
-            output.Name = input.Name;
-            output.Contact = input.Contact;
-            output.Email = input.Email;
-            output.Note = input.Note;
-            output.Created = input.Created;
-            output.Updated = input.Updated;
-            output.Active = input.Active;
-
-            return output;
-        }
-
-        public IEnumerable<Escalation> ToModel(IEnumerable<EscalationMessage> inputs)
-        {
-            if (inputs == null || !inputs.Any())
-                return null;
-
-            var outputs = new List<Escalation>();  
-
-            foreach (var input in inputs)
-            {
-                var output = new Escalation();  
-
-                output.Id = input.Id;
-                output.GroupId = Convert.ToInt64(input.GroupId);
-                output.Sequence = Convert.ToInt32(input.Sequence);
-                //output.HourStart = TimeSpan.Parse(input.HourStart);
-                //output.HourEnd = TimeSpan.Parse(input.HourEnd);
-                output.Role = input.Role;
-                output.Name = input.Name;
-                output.Contact = input.Contact;
-                output.Email = input.Email;
-                output.Note = input.Note;
-                output.Created = input.Created;
-                output.Updated = input.Updated;
-                output.Active = input.Active;
-
-                outputs.Add(output);
-            }
-
-            return outputs;
-        }
-
-        public IEnumerable<EscalationMessage> ToMessage(IEnumerable<Escalation> inputs)
-        {
-            if (inputs == null || !inputs.Any())
-                return null;
-
-            var outputs = new List<EscalationMessage>();  
-
-            foreach (var input in inputs)
-            {
-                var output = new EscalationMessage();  
-
-                output.Id = input.Id;
-                output.GroupId = input.GroupId.ToString();
-                output.Sequence = input.Sequence.ToString();
-               //output.HourStart = input.HourStart.ToString();
-                //output.HourEnd = input.HourEnd.ToString();
-                output.Role = input.Role;
-                output.Name = input.Name;
-                output.Contact = input.Contact;
-                output.Email = input.Email;
-                output.Note = input.Note;
-                output.Created = input.Created;
-                output.Updated = input.Updated;
-                output.Active = input.Active;
-
-                outputs.Add(output);
-            }
-
-            return outputs;
         }
 
     }
