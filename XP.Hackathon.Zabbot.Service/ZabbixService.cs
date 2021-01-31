@@ -17,5 +17,12 @@ namespace XP.Hackathon.Zabbot.Service
 
             return await Task.FromResult(result);
         }
+
+        public async Task<ResultBase> SendMessage(AckEvent message)
+        {
+            var result = new ResultBase();
+
+            return await Task.FromResult(result);
+        }
     }
 }
