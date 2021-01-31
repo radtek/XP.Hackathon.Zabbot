@@ -17,14 +17,13 @@ namespace XP.Hackathon.Zabbot.Api.Controllers
             this._service = service;
         }
 
-        [HttpPost]
-        [Route("ReceiveMessage")]
-        public async Task<ObjectResult> ReceiveMessage([FromBody] ZabbixEvent message)
+        [HttpPost("SendMessageToTeams")]
+        public async Task<ObjectResult> SendMessageToTeams([FromBody] ZabbixEvent message)
         {
             if (message == null || message.Id < 0)
                 return await ResponseBadRequest();
 
-            var response = await _service.ReceiveMessage(message);
+            var response = await _service.SendMessageToTeams(message);
 
             if (!response.Success)
                 return await ResponseInternalServerError(response.FriendlyMessage);

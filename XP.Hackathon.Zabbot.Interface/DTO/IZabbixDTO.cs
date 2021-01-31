@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using XP.Hackathon.Zabbot.Model;
 
 namespace XP.Hackathon.Zabbot.Interface.DTO
 {
     public interface IZabbixDTO
     {
+        TeamsEvent GetTeamsMessage(ZabbixEvent input);
     }
 }

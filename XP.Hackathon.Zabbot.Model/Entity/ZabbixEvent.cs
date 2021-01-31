@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace XP.Hackathon.Zabbot.Model
 {
@@ -7,6 +8,7 @@ namespace XP.Hackathon.Zabbot.Model
         public long Id { get; set; }
         public string Message { get; set; }
         public string Subject { get; set; }
+        public string TagNameGroup { get; set; }
         public string Date { get; set; }
         public string NSeverity { get; set; }
         public string OpData { get; set; }
@@ -41,8 +43,8 @@ namespace XP.Hackathon.Zabbot.Model
         public string context { get; set; }
         public string themeColor { get; set; }
         public string summary { get; set; }
-        public Section[] sections { get; set; }
-        public Potentialaction[] potentialAction { get; set; }
+        public List<Section> sections { get; set; }
+        public List<Potentialaction> potentialAction { get; set; }
     }
 
     public class Section
@@ -50,7 +52,7 @@ namespace XP.Hackathon.Zabbot.Model
         public string activityTitle { get; set; }
         public string activitySubtitle { get; set; }
         public string activityImage { get; set; }
-        public Fact[] facts { get; set; }
+        public List<Fact> facts { get; set; }
         public bool markdown { get; set; }
     }
 
@@ -64,9 +66,9 @@ namespace XP.Hackathon.Zabbot.Model
     {
         public string type { get; set; }
         public string name { get; set; }
-        public Input[] inputs { get; set; }
-        public Action[] actions { get; set; }
-        public Target[] targets { get; set; }
+        public List<Input> inputs { get; set; }
+        public List<Action> actions { get; set; }
+        public List<Target> targets { get; set; }
     }
 
     public class Input

@@ -21,6 +21,8 @@ namespace XP.Hackathon.Zabbot.Api
     public class Startup
     {
         public IConfigurationRoot _configuration { get; }
+        public IConfiguration Configuration { get; }
+        private const string SETTINGS = "Settings";
         readonly string MyAllowSpecificOrigins = "myAllowSpecificOrigins";
 
         public Startup(IHostingEnvironment env)
@@ -44,20 +46,15 @@ namespace XP.Hackathon.Zabbot.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
+            var instructionSettings = new Settings();
+            _configuration.Bind(SETTINGS, instructionSettings);
+            services.AddSingleton(typeof(ISettings), (serviceProvider) => instructionSettings);
+
             AppSettings.Initialize();
             AppSettings.ConnectionString.Zabbot = _configuration["ConnectionString:Zabbot"];
-            AppSettings.TokenConfiguration.Audience = _configuration["TokenConfiguration:Audience"];
-            AppSettings.TokenConfiguration.Issuer = _configuration["TokenConfiguration:Issuer"];
-            AppSettings.TokenConfiguration.Seconds = Convert.ToInt64(_configuration["TokenConfiguration:Seconds"]);
-            AppSettings.TokenConfiguration.Secret = _configuration["TokenConfiguration:Secret"];
-            AppSettings.Redis.Server = _configuration["Redis:Server"];
-            AppSettings.Redis.Password = _configuration["Redis:Password"];
-            AppSettings.Redis.Database = _configuration["Redis:Database"];
-            AppSettings.MongoDB.ServerName = _configuration["MongoDB:ServerName"];
-            AppSettings.MongoDB.DatabaseName = _configuration["MongoDB:DatabaseName"];
-            AppSettings.MongoDB.Collection = _configuration["MongoDB:Collection"];
 
             services.AddRazorPages();
+            //services.AddCustomSwagger(Configuration);
 
 
             services.AddCors(options =>
@@ -126,7 +123,7 @@ namespace XP.Hackathon.Zabbot.Api
 
             services.AddCors();
 
-            var key = Encoding.ASCII.GetBytes(AppSettings.TokenConfiguration.Secret);
+            var key = Encoding.ASCII.GetBytes(_configuration["TokenConfiguration:Secret"]);
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

@@ -29,12 +29,14 @@ namespace XP.Hackathon.Zabbot.Infrastructure.IoC
                 services.AddTransient<Interface.Service.IUserService, Service.UserService>();
                 services.AddTransient<Interface.Service.IEscalationGroupService, Service.EscalationGroupService>();
                 services.AddTransient<Interface.Service.IEscalationService, Service.EscalationService>();
+                services.AddTransient<Interface.Service.IZabbixService, Service.ZabbixService>();
 
                 services.AddTransient<ICacheService, RedisService>();
                 services.AddTransient<IAuthentication, Authentication>();
                 services.AddTransient<Interface.DTO.IUserDTO, DTO.UserDTO>();
                 services.AddTransient<Interface.DTO.IEscalationGroupDTO, DTO.EscalationGroupDTO>();
                 services.AddTransient<Interface.DTO.IEscalationDTO, DTO.EscalationDTO>();
+                services.AddTransient<Interface.DTO.IZabbixDTO, DTO.ZabbixDTO>();
 
                 // Repository
                 services.AddTransient<Interface.Repository.ILogRepository, Data.SqlSever.Repositories.LogRepository>();
