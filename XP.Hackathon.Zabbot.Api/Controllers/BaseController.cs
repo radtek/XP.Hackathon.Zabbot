@@ -1,13 +1,10 @@
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System.Threading.Tasks;
 using XP.Hackathon.Zabbot.Interface.DTO;
 using XP.Hackathon.Zabbot.Interface.Service.Base;
 using XP.Hackathon.Zabbot.Model;
 using XP.Hackathon.Zabbot.Model.Filter;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
 
 namespace XP.Hackathon.Zabbot.Api.Controllers
 {
@@ -156,37 +153,7 @@ namespace XP.Hackathon.Zabbot.Api.Controllers
         {
             responseMessage = StatusCode((int)HttpStatusCode.BadRequest, message);
             return Task.FromResult(responseMessage);
-        }
-
-        public long? ParticipantId
-        {
-
-            get
-            {
-                return Convert.ToInt64((HttpContext.User.Claims.FirstOrDefault(x => x.Type == nameof(ParticipantId)) != null ? HttpContext.User.Claims.First(x => x.Type == nameof(ParticipantId)).Value : "0"));
-            }
-        }
-
-        public long? ProfileId
-        {
-            get
-            {
-                return Convert.ToInt64((HttpContext.User.Claims.FirstOrDefault(x => x.Type == nameof(ProfileId)) != null ? HttpContext.User.Claims.First(x => x.Type == nameof(ProfileId)).Value : "0"));
-            }
-        }
-
-        public List<long> Profiles
-        {
-            get
-            {
-                var hasProfile = HttpContext.User.Claims.Any(x => x.Type == "ProfileId");
-                if (!hasProfile)
-                    return null;
-
-                var profiles = HttpContext.User.Claims.Where(x => x.Type == "ProfileId").Select(x => Convert.ToInt64(x.Value)).ToList();
-                return profiles;
-            }
-        }
+        }     
 
         public string GetIpAddress
         {

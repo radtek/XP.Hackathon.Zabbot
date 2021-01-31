@@ -13,11 +13,8 @@ namespace XP.Hackathon.Zabbot.Infrastructure.Data.Context
         }
 
         public DbSet<User> User { get; set; }
-        public DbSet<Product> Product { get;set;}
         public DbSet<EscalationGroup> EscalationGroup { get; set; }
         public DbSet<Escalation> Escalation { get; set; }
-
-        // SkyNet.Region create_table
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
