@@ -11,6 +11,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5734113C-DDAE-439E-AA1C-9AAC2A9A6090}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{5683BF14-A2AC-4D59-B2CB-FFF5DFD8145C}"
+	ProjectSection(SolutionItems) = preProject
+		CreateDatabase.sql = CreateDatabase.sql
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XP.Hackathon.Zabbot.UnitaryTests", "XP.Hackathon.Zabbot.UnitaryTests\XP.Hackathon.Zabbot.UnitaryTests.csproj", "{C026AC48-B753-4AB8-8B1A-ADF4085EB5EB}"
 EndProject
