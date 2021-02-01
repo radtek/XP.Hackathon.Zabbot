@@ -1,6 +1,6 @@
 # Zabbot - Integração de alertas
 
-API responsible for managing and consulting escalations, enabling the assimilation of existing records and documents used by the NOC. In addition to the integration and communication between the two ends (Teams and Zabbix) with notification of alerts directed to those responsible and status update of Zabbix events (ACK) through chat interaction between the bot and the user.
+Zabbot is a tool that aims to automate triggers that are made by the NOC. The tool has integrations that notify several channels such as: Microsoft Teams, Telegram, outlook and etc. It also signals the status change within Zabbix, so the NOC can see which calls are already in service (ACK).
 
 ## Contents
 
