@@ -93,5 +93,22 @@ namespace XP.Hackathon.Zabbot.DTO
             return output;
         }
 
+        public void GetZabbotAckEvent(AckEvent input, ZabbotEvent output)
+        {
+            if (input == null)
+                return;
+
+            output.jsonrpc = "2.0";
+            output.method = "event.acknowledge";
+            output.id = 1;
+            output._params = new AckParams()
+            {
+                eventids = input.EventId,
+                message = $"{input.OperatingUser}{input.Message}",
+                action = (int)input.Action
+            };
+            output.auth = output.result;
+        }
+
     }
 }
