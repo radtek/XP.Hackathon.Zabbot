@@ -1,6 +1,6 @@
 # Zabbot - Integração de alertas
 
-API Responsável pelo gerenciamento e consulta das escalações possibilitando a assimilação de registros e documentos já existentes utilizados pelo NOC. Além da integração e  comunicação entre as duas pontas (Teams e o Zabbix) com a notificação de alertas direcionada aos responsáveis e atualização de estado dos eventos do zabbix (ACK).
+API responsible for managing and consulting escalations, enabling the assimilation of existing records and documents used by the NOC. In addition to the integration and communication between the two ends (Teams and Zabbix) with notification of alerts directed to those responsible and status update of Zabbix events (ACK) through chat interaction between the bot and the user.
 
 ## Contents
 
