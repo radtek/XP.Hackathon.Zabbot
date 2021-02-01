@@ -1,8 +1,6 @@
 # Zabbot - Integração de alertas
 
-Contributions are always welcome! Please take a look at the [contribution guidelines](https://github.com/thangchung/awesome-dotnet-core/blob/master/contributing.md) pages first. We accept proprietary and commercial software too.
-
-Thanks to all [contributors](https://github.com/lcarvalho1985/XP.Hackathon.Zabbot/graphs/contributors), you're awesome and wouldn't be possible without you! The goal is to build a categorized community-driven collection of very well-known resources.
+API Responsável pelo gerenciamento e consulta das escalações possibilitando a assimilação de registros e documentos já existentes utilizados pelo NOC. Além da integração e  comunicação entre as duas pontas (Teams e o Zabbix) com a notificação de alertas direcionada aos responsáveis e atualização de estado dos eventos do zabbix (ACK).
 
 ## Contents
 
