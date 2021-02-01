@@ -32,13 +32,13 @@ namespace XP.Hackathon.Zabbot.Api.Controllers
         }
 
         [HttpPost]
-        [Route("SendMessage")]
-        public async Task<ObjectResult> SendMessage([FromBody] AckEvent message)
+        [Route("SendMessageToZabbix")]
+        public async Task<ObjectResult> SendMessageToZabbix([FromBody] AckEvent message)
         {
-            if (message.EventIds < 0)
+            if (string.IsNullOrWhiteSpace(message.EventId))
                 return await ResponseBadRequest();
 
-            var response = await _service.SendMessage(message);
+            var response = await _service.SendMessageToZabbix(message);
 
             if (!response.Success)
                 return await ResponseInternalServerError(response.FriendlyMessage);
